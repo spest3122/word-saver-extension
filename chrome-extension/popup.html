@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Word Saver</h1>
+    <p class="subtitle">儲存單字到 Google Sheet</p>
+
+    <div class="form-group">
+      <label for="url">Google Apps Script Web App URL</label>
+      <input type="url" id="url" placeholder="https://script.google.com/macros/s/..." />
+    </div>
+
+    <button id="saveBtn" class="btn-save">儲存設定</button>
+
+    <div id="status" class="status" style="display:none;"></div>
+
+    <div class="instructions">
+      <h2>使用方式</h2>
+      <ol>
+        <li>建立 Google Sheet 並開啟 Apps Script</li>
+        <li>貼上 Code.gs 程式碼並部署為 Web App</li>
+        <li>將 Web App URL 貼到上方欄位</li>
+        <li>在任意網頁選取單字 → 右鍵 → 儲存到 Google Sheet</li>
+      </ol>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
