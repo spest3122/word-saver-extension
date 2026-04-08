@@ -83,7 +83,7 @@ function showConfirmOverlay(data) {
         }
 
         if (response && response.success) {
-          showResult(resultDiv, true, response.translation);
+          showResult(resultDiv, true, response.translation, response.partOfSpeech);
         } else {
           showResult(resultDiv, false, response?.error || "儲存失敗");
         }
@@ -105,14 +105,16 @@ function showConfirmOverlay(data) {
 /**
  * 顯示結果
  */
-function showResult(resultDiv, success, message) {
+function showResult(resultDiv, success, message, partOfSpeech) {
   if (success) {
+    const posHtml = partOfSpeech ? `<div class="ws-pos">詞性：${escapeHtml(partOfSpeech)}</div>` : "";
     resultDiv.innerHTML = `
       <div class="ws-success">
         <span class="ws-result-icon">✅</span>
         <div>
           <div>儲存成功！</div>
           <div class="ws-translation">翻譯：${escapeHtml(message)}</div>
+          ${posHtml}
         </div>
       </div>
     `;
@@ -350,6 +352,12 @@ function getOverlayStyles() {
       color: #4A90D9;
       font-weight: 600;
       font-size: 16px;
+    }
+
+    .ws-pos {
+      margin-top: 2px;
+      color: #666;
+      font-size: 13px;
     }
 
     .ws-error {

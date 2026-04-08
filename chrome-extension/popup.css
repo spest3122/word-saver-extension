@@ -24,7 +24,44 @@ h1 {
 .subtitle {
   font-size: 13px;
   color: #888;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+}
+
+.tab-nav {
+  display: flex;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 16px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px 0;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.tab-btn:hover {
+  color: #4A90D9;
+}
+
+.tab-btn.active {
+  color: #4A90D9;
+  border-bottom-color: #4A90D9;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
 }
 
 .form-group {
@@ -104,4 +141,45 @@ h1 {
   font-size: 12px;
   color: #777;
   line-height: 1.8;
+}
+
+.word-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.word-card {
+  padding: 12px;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.word-card .card-word {
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+}
+
+.word-card .card-translation {
+  font-size: 14px;
+  color: #4A90D9;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.word-card .card-pos {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.empty-state {
+  text-align: center;
+  color: #aaa;
+  font-size: 14px;
+  padding: 40px 0;
 }

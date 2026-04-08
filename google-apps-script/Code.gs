@@ -5,6 +5,7 @@ function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
     var word = data.word;
+    var partOfSpeech = data.partOfSpeech || "";
     var pageTitle = data.pageTitle;
     var pageUrl = data.pageUrl;
 
@@ -15,9 +16,9 @@ function doPost(e) {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Words");
     if (!sheet) {
       sheet = SpreadsheetApp.getActiveSpreadsheet().insertSheet("Words");
-      sheet.appendRow(["Timestamp", "Word", "Translation", "Page Title", "URL"]);
+      sheet.appendRow(["Timestamp", "Word", "Translation", "Part of Speech", "Page Title", "URL"]);
       // 設定標題列格式
-      sheet.getRange(1, 1, 1, 5).setFontWeight("bold");
+      sheet.getRange(1, 1, 1, 6).setFontWeight("bold");
     }
 
     // 寫入資料
@@ -25,6 +26,7 @@ function doPost(e) {
       new Date(),
       word,
       translation,
+      partOfSpeech,
       pageTitle,
       pageUrl
     ]);

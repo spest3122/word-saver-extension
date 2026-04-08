@@ -9,23 +9,35 @@
     <h1>Word Saver</h1>
     <p class="subtitle">儲存單字到 Google Sheet</p>
 
-    <div class="form-group">
-      <label for="url">Google Apps Script Web App URL</label>
-      <input type="url" id="url" placeholder="https://script.google.com/macros/s/..." />
+    <div class="tab-nav">
+      <button class="tab-btn active" data-tab="settings">設定</button>
+      <button class="tab-btn" data-tab="today">今日單字</button>
     </div>
 
-    <button id="saveBtn" class="btn-save">儲存設定</button>
+    <div class="tab-panel active" id="tab-settings">
+      <div class="form-group">
+        <label for="url">Google Apps Script Web App URL</label>
+        <input type="url" id="url" placeholder="https://script.google.com/macros/s/..." />
+      </div>
 
-    <div id="status" class="status" style="display:none;"></div>
+      <button id="saveBtn" class="btn-save">儲存設定</button>
 
-    <div class="instructions">
-      <h2>使用方式</h2>
-      <ol>
-        <li>建立 Google Sheet 並開啟 Apps Script</li>
-        <li>貼上 Code.gs 程式碼並部署為 Web App</li>
-        <li>將 Web App URL 貼到上方欄位</li>
-        <li>在任意網頁選取單字 → 右鍵 → 儲存到 Google Sheet</li>
-      </ol>
+      <div id="status" class="status" style="display:none;"></div>
+
+      <div class="instructions">
+        <h2>使用方式</h2>
+        <ol>
+          <li>建立 Google Sheet 並開啟 Apps Script</li>
+          <li>貼上 Code.gs 程式碼並部署為 Web App</li>
+          <li>將 Web App URL 貼到上方欄位</li>
+          <li>在任意網頁選取單字 → 右鍵 → 儲存到 Google Sheet</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-today">
+      <div id="wordList" class="word-list"></div>
+      <div id="emptyState" class="empty-state">今天還沒有儲存單字</div>
     </div>
   </div>
 
